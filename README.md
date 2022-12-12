@@ -2,6 +2,8 @@
 
 BashGPT is a simple python script that helps you generate and understand terminal commands.
 
+Right now it's kind of dumb and probably worse than the Chat GPT UI. The goal is to make it easy to use in my day-to-day workflow.
+
 ## How to run
 
 1. Clone the repository
