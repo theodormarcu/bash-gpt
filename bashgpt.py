@@ -7,7 +7,7 @@ import requests
 # Explain this prompt
 # Generate a command
 
-GENERATE_PROMPT = "Generate a terminal command that respects the following prompt: "
+GENERATE_PROMPT = "You will be asked to generate a shell command and only respond with the code. You will not add any explanations. Generate a temrinal command that respects the following prompt: "
 
 EXPLAIN_PROMPT = "Explain the following terminal command: "
 
@@ -50,14 +50,35 @@ def explain_command(prompt: str):
             progress.update(task, advance=1)
 
 
+def generate_chat(prompt: str):
+    """Just chat"""
+    with Progress(
+        SpinnerColumn(),
+        TextColumn("[progress.description]{task.description}"),
+        transient=True,
+    ) as progress:
+        task = progress.add_task(
+            description="Asking Chat GPT...", total=1)
+
+        while not progress.finished:
+            response = requests.get(
+                f"http://localhost:5001/chat?q={prompt}",
+            )
+            typer.echo(f"\nResponse from Chat GPT:\n{response.text}\n")
+            progress.update(task, advance=1)
+
+
 def main(
     prompt: str = typer.Argument(...),
         generate: bool = typer.Option(False),
+        chat: bool = typer.Option(False),
 ):
     typer.echo(f"Prompt: {prompt}")
-    typer.echo(f"Generate: {generate}")
+    typer.echo(f"Command generation mode: {generate}")
     if generate:
         generate_command(prompt)
+    elif chat:
+        generate_chat(prompt)
     else:
         explain_command(prompt)
 

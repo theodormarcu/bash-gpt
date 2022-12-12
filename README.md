@@ -23,6 +23,12 @@ Right now it's kind of dumb and probably worse than the Chat GPT UI. The goal is
 
 `python3 -m bashgpt --generate "Install python3 using brew"`
 
+## To explain the last command
+
+```bash
+# In .zshrc or .bashrc
+alias explain="python3 -m bashgpt \"$(fc -ln -1)\"
+```
 
 ### Credits
 
