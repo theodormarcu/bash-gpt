@@ -26,4 +26,4 @@ Right now it's kind of dumb and probably worse than the Chat GPT UI. The goal is
 
 ### Credits
 
-Thanks @danielgross for the unofficial ChatGPT API (in server.py). Check out his repo [here](https://github.com/danielgross/whatsapp-gpt/blob/main/multichat.py);
+Thanks [@danielgross](https://github.com/danielgross) for the unofficial ChatGPT API (in server.py). Check out his repo [here](https://github.com/danielgross/whatsapp-gpt/blob/main/multichat.py);
