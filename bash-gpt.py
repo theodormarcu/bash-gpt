@@ -70,17 +70,15 @@ def generate_chat(prompt: str):
 
 def main(
     prompt: str = typer.Argument(...),
-        generate: bool = typer.Option(False),
+        explain: bool = typer.Option(False),
         chat: bool = typer.Option(False),
 ):
-    typer.echo(f"Prompt: {prompt}")
-    typer.echo(f"Command generation mode: {generate}")
-    if generate:
-        generate_command(prompt)
+    if explain:
+        explain_command(prompt)
     elif chat:
         generate_chat(prompt)
     else:
-        explain_command(prompt)
+        generate_command(prompt)
 
 
 if __name__ == "__main__":
